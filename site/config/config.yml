@@ -1,0 +1,91 @@
+general:
+  multilingual:   true
+  caching:        true
+  environment:    auto # production, development
+  use_full_page_cache: false    
+  environment: development
+
+domain_holder:
+  name:   'playground'
+  email:  'info@example.com'
+
+developer:
+  email: cms@example.com
+  
+frontend:
+  main_template: main
+  inherit_contents: false
+  protect_email_addresses: true
+  doctype: xhtml5
+  
+encoding:
+  db: utf-8
+  browser: utf-8
+
+admin:
+  title: 'Admin: netla — {{module_name}}'
+  inherit_children_enable: true
+  delete_pagetree_enable: true
+  page_properties_allow: false
+  
+  # set this to false if your containers overlap
+  use_parsed_css_in_config: false
+  
+  # document edit and delete can be restricted to owner only (if is not admin), defaults to false
+  document_delete_allow_from_creator_only: false
+  list_allows_multiple_categories: false
+  
+# default config for ckeditor
+# important note: always requires space after comma ", " in order to function properly
+text_module:  
+  toolbar: 
+    - 
+      - ["Bold", "Italic"]
+      - ["Link", "Unlink", "Anchor", "-", "Image"]
+      - ["NumberedList", "BulletedList", "Blockquote"]
+      - ["Undo", "Redo", "-", "Find"]
+      - ["Styles", "Format"]
+    -
+      - ["Subscript", "Superscript", "-", "Maximize"]    -
+      - ["HorizontalRule", "Smiley", "SpecialChar", "-", "RemoveFormat", "Scayt", "ShowBlocks"]
+      - ["Source"]
+  richtext_width: 700
+
+session_default:
+  language: en
+
+#navigation configuration
+meta_navigation:
+  language_chooser:
+    template: language
+    template_active: language_active
+    show_active_language: true
+
+navigations:
+  main:
+    1: 
+      - {template: main_current, on: 'is_current'}
+      - {template: main_active, on: 'is_active'}
+      - {template: main_default}
+  breadcrumb:
+    show_hidden: true
+    all:
+      - {template: bc_last, on: 'is_current'}
+      - {template: bc, on: 'is_active'}
+  sub:
+    0:
+      - {show: true}
+    1:
+      - {template: secondary_wrapper, on: 'is_active&has_children'}
+      - {show: false}
+    all: 
+      - {template: secondary_level_current, on: is_current}
+      - {template: secondary_level_default, on: is_child_of_current|is_sibling_of_active|is_active}
+      - {show: false}
+  top_css:
+    no_newline: true
+    0:
+      - {template: include_css, on: is_current}
+    1:
+      - {template: include_css, on: is_active}
+

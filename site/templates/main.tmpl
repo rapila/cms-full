@@ -1,0 +1,36 @@
+<head>
+	<title>{{writeString=site.title}} — {{title}}</title>
+	<meta name="keywords" content="{{meta_keywords}}" />
+	<base href="{{writeLink=base_href}}" />
+	{{addResourceInclude=site.css;name=css}}{{addResourceInclude=prettyPhoto.css;name=css}}{{writeResourceIncludes;name=css}}
+	{{addResourceInclude=jquery;library=1.4}}{{addResourceInclude=jquery.prettyPhoto.js}}{{addResourceInclude=site.js}}{{writeResourceIncludes}}
+</head>
+
+<body class="body-{{navigation=top_css}}">
+	<header>
+		<nav id="breadcrumb">
+			{{navigation=breadcrumb}}
+		</nav>
+		<h1>{{writeString=site.welcome}}</h1>
+		<nav id="language_chooser">
+			{{language_chooser}}
+		</nav>
+		<nav id="main_navigation">
+			{{navigation=main}}
+		</nav>
+	</header>
+	<div id="content">
+		<section id="auxiliary">
+			<nav id="sub">
+				{{navigation=sub}}
+			</nav>
+			{{container=auxiliary}}
+		</section>
+		<h2>{{title}}</h2>
+		{{container=content}}
+	</div>
+	<footer>
+		<a href="{{writeLink=;manager=AdminManager;position=last}}">{{writeString=login}}</a>
+	</footer>
+</body>
+</html>

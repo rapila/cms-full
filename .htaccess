@@ -1,0 +1,10 @@
+RewriteEngine On
+Options FollowSymLinks
+
+php_flag magic_quotes_gpc off
+php_flag output_buffering on
+
+RewriteCond     %{REQUEST_URI}  !/*(base\/web|plugins\/(\w|_)+\/web|site\/web) [OR]
+RewriteCond     %{REQUEST_FILENAME}  !-f
+
+RewriteRule ^/*(.*)$ index.php?path=$1 [L,QSA]

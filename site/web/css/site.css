@@ -94,9 +94,14 @@ header span.current {
 #auxiliary {
 	padding: 1em;
 	min-width: 200px;
+	max-width: 400px;
 	border-width: 3px;
 	border-style: solid;
 	-moz-border-radius: 10px;
+}
+
+html.preview #breadcrumb {
+	margin-top: 2em;
 }
 
 #breadcrumb {

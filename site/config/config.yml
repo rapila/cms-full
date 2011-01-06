@@ -85,7 +85,7 @@ navigations:
   top_css:
     no_newline: true
     0:
-      - {template: include_css, on: is_current}
+      - {template_inline: '{{name}}', on: is_current}
     1:
-      - {template: include_css, on: is_active}
+      - {template_inline: '{{name}}', on: is_active}
 

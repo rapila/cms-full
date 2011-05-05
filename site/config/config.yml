@@ -23,7 +23,7 @@ encoding:
   browser: utf-8
 
 admin:
-  title: 'Admin: netla — {{module_name}}'
+  title: 'Admin: rapila — {{module_name}}'
   inherit_children_enable: true
   delete_pagetree_enable: true
   page_properties_allow: false

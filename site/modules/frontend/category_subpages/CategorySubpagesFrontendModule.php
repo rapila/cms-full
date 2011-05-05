@@ -9,7 +9,6 @@ class CategorySubpagesFrontendModule extends DynamicFrontendModule {
 		if(isset($_REQUEST['document_category_id'])) {
 			$this->iCategoryId = $_REQUEST['document_category_id'];
 		}
-		// Util::dumpAll($this->iCategoryId);
 		parent::__construct($oLanguageObject, $aRequestPath);
 	}
 

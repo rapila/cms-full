@@ -28,6 +28,7 @@ class CategorySubpagesFrontendModule extends DynamicFrontendModule {
 			foreach($aDocuments as $i => $oDocument) {
 				$oItemTemplate = new Template($sTemplateName.DocumentListFrontendModule::LIST_ITEM_POSTFIX);
 				$oItemTemplate->replaceIdentifier('model', 'Document');
+				$oItemTemplate->replaceIdentifier('counter', $i+1);
 				$oDocument->renderListItem($oItemTemplate);
 				$oListTemplate->replaceIdentifierMultiple('items', $oItemTemplate);
 			}

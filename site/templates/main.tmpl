@@ -2,8 +2,9 @@
 	<title>{{writeString=site.title}} — {{title}}</title>
 	<meta name="keywords" content="{{meta_keywords}}" />
 	<base href="{{writeLink=base_href}}" />
-	{{addResourceInclude=favicon.png;type=icons}}
-	{{addResourceInclude=site.css;name=css}}{{addResourceInclude=prettyPhoto.css;name=css}}{{writeResourceIncludes;name=css}}
+	{{writeDirectInclude=favicon.png;type=icons}}
+	{{addResourceInclude=http://fonts.googleapis.com/css?family=Limelight&v2;type=css;name=css}}
+	{{addResourceInclude=site.css;name=css}}{{addResourceInclude=prettyPhoto.css;name=css}}{{writeResourceIncludes=css}}
 	{{addResourceInclude=jquery;library=1.6.2}}{{addResourceInclude=jquery.prettyPhoto.js}}{{addResourceInclude=site.js}}{{writeResourceIncludes}}
 </head>
 

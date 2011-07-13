@@ -40,7 +40,7 @@ class CategorySubpagesFrontendModule extends DynamicFrontendModule {
 	}
 
 	public function renderBackend() {
-		return null;
+		return "Press Save";
 	}
 
 	public function getSaveData() {

@@ -3,15 +3,14 @@
 * @package modules.filter
 */
 class CategorySubpagesFilterModule extends FilterModule {
-	public function onNavigationPathFound(NavigationItem $oRoot, NavigationItem $oCurrent) {
-		$oPhotos = $oRoot->namedChild('photos');
-		if($oPhotos === null) {
+	public function onNavigationItemChildrenRequested(NavigationItem $oCurrent) {
+		if(!($oCurrent instanceof PageNavigationItem && $oCurrent->getIdentifier() === 'photos')) {
 			return;
 		}
 		$aDocumentCategories = DocumentCategoryQuery::create()->filterByDocumentKind('image')->find();
 		foreach($aDocumentCategories as $oDocumentCategory) {
 			$oNavItem = new VirtualNavigationItem(get_class(), StringUtil::normalize($oDocumentCategory->getName()), $oDocumentCategory->getName(), null, $oDocumentCategory->getId());
-			$oPhotos->addChild($oNavItem);
+			$oCurrent->addChild($oNavItem);
 		}
 	}
 	

@@ -15,7 +15,7 @@ class CategorySubpagesFilterModule extends FilterModule {
 	}
 	
 	public function onPageHasBeenSet($oPage, $bIsNotFound, $oNavigationItem) {
-		if($bIsNotFound || !($oNavigationItem instanceof VirtualNavigationItem) || $oNavigationItem->getIdentifier() !== get_class()) {
+		if($bIsNotFound || !($oNavigationItem instanceof VirtualNavigationItem) || $oNavigationItem->getType() !== get_class()) {
 			return;
 		}
 		$_REQUEST['document_category_id'] = $oNavigationItem->getData();

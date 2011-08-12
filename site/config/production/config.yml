@@ -1,0 +1,4 @@
+frontend:
+	# No XHTML content type in production to not have user agents choke on invalid markup.
+  doctype: html5
+	# Note: This is just a demonstration of environment-based settings override. The XHTML content type is fine, even in production environments. We have never seen rapila generate invalid markup.

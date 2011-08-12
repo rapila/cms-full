@@ -7,4 +7,9 @@ php_flag output_buffering on
 RewriteCond     %{REQUEST_URI}  !/*(base\/web|plugins\/(\w|_)+\/web|site\/web) [OR]
 RewriteCond     %{REQUEST_FILENAME}  !-f
 
+# Possible values: auto, production, development, staging, test (for unit tests only).
+# You can also use your own value but you should always use “production” in production environments.
+# Note: If you’re running rapila under php-cgi, you need to set the environment in your wrapper script.
+SetEnv RAPILA_ENVIRONMENT production
+
 RewriteRule ^/*(.*)$ index.php?path=$1 [L,QSA]

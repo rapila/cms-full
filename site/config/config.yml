@@ -1,9 +1,7 @@
 general:
   multilingual:   true
   caching:        true
-  environment:    auto # production, development
   use_full_page_cache: false    
-  environment: development
 
 domain_holder:
   name:   'playground'

@@ -4,12 +4,25 @@ jQuery(document).ready(function(){
 	}).slice(0, 3);
 	color.push(40);
 	jQuery("a[rel^='lightbox']").each(function() {
-		Caman(jQuery(this).find('img')[0], function() {
+		var link = jQuery(this);
+		Caman(link.find('img')[0], function() {
 			this.colorize.apply(this, color).render();
 		});
-	}).prettyPhoto({
-		showTitle: true,
-		theme: 'dark_square',
-		allowresize: true
+		var license_url = link.attr('data-license-url');
+		var license_image = link.attr('data-license-image');
+		if(license_url && license_image) {
+			license_image = '<a href="'+license_url+'"><img src="'+license_image+'" /></a>';
+		}
+		console.log(license_image);
+		link.prettyPhoto({
+			showTitle: true,
+			theme: 'dark_square',
+			allowresize: true,
+			overlay_gallery: false,
+			keyboard_shortcuts: false,
+			gallery_markup: '',
+			social_tools: license_image,
+			deeplinking: false
+		});
 	});
 });

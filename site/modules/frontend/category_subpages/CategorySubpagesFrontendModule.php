@@ -43,7 +43,7 @@ class CategorySubpagesFrontendModule extends DynamicFrontendModule {
 		return "Press Save";
 	}
 
-	public function getSaveData() {
+	public function getSaveData($aData) {
 		return "";
 	}
 }

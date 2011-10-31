@@ -1,8 +1,10 @@
 connection:
-  phptype:    'mysql'
-  hostspec:   'localhost'
   user:       'myusername'
   password:   'mypassword'
   dsn:        'mysql:dbname=database;host=localhost'
 database:
   adapter:  'mysql'
+log:
+  type: file
+  name: ./generated/propel.log
+  level: 7

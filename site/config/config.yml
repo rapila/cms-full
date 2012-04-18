@@ -6,6 +6,7 @@ general:
 domain_holder:
   name:   'playground'
   email:  'info@example.com'
+  domain: 'example.com'
 
 developer:
   email: cms@example.com

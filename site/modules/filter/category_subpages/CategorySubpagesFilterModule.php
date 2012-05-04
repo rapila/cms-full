@@ -1,8 +1,15 @@
 <?php
 /**
+* class CategorySubpagesFilterModule
+* description:
+* • add document categories as virtual navigation items to page tree
+* • advantage: full_page cache
+* • the page where CategorySubpages is configured requires additionally the identifier to be "photos"
+* 
 * @package modules.filter
 */
 class CategorySubpagesFilterModule extends FilterModule {
+
 	public function onNavigationItemChildrenRequested(NavigationItem $oCurrent) {
 		if(!($oCurrent instanceof PageNavigationItem && $oCurrent->getIdentifier() === 'photos')) {
 			return;

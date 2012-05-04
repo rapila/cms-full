@@ -13,7 +13,6 @@ jQuery(document).ready(function(){
 		if(license_url && license_image) {
 			license_image = '<a href="'+license_url+'"><img src="'+license_image+'" /></a>';
 		}
-		console.log(license_image);
 		link.prettyPhoto({
 			showTitle: true,
 			theme: 'dark_square',

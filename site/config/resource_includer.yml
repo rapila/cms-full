@@ -1,2 +1,2 @@
 libraries:
-  caman: 'http://cdnjs.cloudflare.com/ajax/libs/camanjs/${version}/caman.full.min.js'
+  fancybox: '//cdnjs.cloudflare.com/ajax/libs/fancybox/${version}/jquery.fancybox.pack.js'

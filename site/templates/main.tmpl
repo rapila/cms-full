@@ -5,9 +5,9 @@
 	<meta name="environment" content="{{writeConstantValue=RAPILA_ENVIRONMENT}}" />
 	{{writeDirectInclude=favicon.png;type=icons}}
 	{{addResourceInclude=http://fonts.googleapis.com/css?family=Limelight&v2;type=css;name=css}}
-	{{addResourceInclude=site.css;name=css}}{{addResourceInclude=prettyPhoto.css;name=css}}{{writeResourceIncludes=css}}
-	{{addResourceInclude=jquery;library=1.7.1}}{{addResourceInclude=caman;library=2.2}}
-	{{addResourceInclude=jquery.prettyPhoto.js}}{{addResourceInclude=site.js}}{{writeResourceIncludes}}
+	{{addResourceInclude=site.css;name=css}}{{addResourceInclude=fancybox/jquery.fancybox.css;name=css}}{{writeResourceIncludes=css}}
+	{{addResourceInclude=jquery;library=1.7.1}}{{addResourceInclude=fancybox;library=2.1.1}}
+	{{addResourceInclude=site.js}}{{writeResourceIncludes}}
 </head>
 
 <body class="body-{{navigation=top_css}}">
@@ -34,7 +34,7 @@
 		{{container=content}}
 	</div>
 	<footer>
-		<a href="{{writeLink=;manager=AdminManager;position=last}}">{{writeString=wns.login}}</a>
+		<a href="{{writeLink=;manager=AdminManager;position=last}}">{{writeString=login}}</a>
 	</footer>
 </body>
 </html>

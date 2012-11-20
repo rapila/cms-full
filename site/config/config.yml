@@ -10,13 +10,15 @@ domain_holder:
 
 developer:
   email: cms@example.com
-  
+
 frontend:
   main_template: main
   inherit_contents: false
   protect_email_addresses: true
   doctype: xhtml5
-  
+  re_captcha_private_key: 'change-this'
+  re_captcha_public_key: 'change-this'
+
 encoding:
   db: utf-8
   browser: utf-8

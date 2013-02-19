@@ -1,1 +1,4 @@
+{{if;1=\{\{document_kind\}\};2=image}}
 <a href="{{url}}?max_width=800" rel="lightbox" title="{{license_disclaimer}}" data-license-url="{{license_url}}" data-license-image="{{license_image}}"><img src="{{url}}?max_width=80" /></a>
+{{endIf}}
+{{if=ne;1=\{\{document_kind\}\};2=image}}{{preview}}{{endIf}}

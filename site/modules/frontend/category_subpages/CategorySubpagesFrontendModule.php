@@ -2,7 +2,7 @@
 /**
  * @package modules.frontend
  */
-class CategorySubpagesFrontendModule extends DynamicFrontendModule {
+class CategorySubpagesFrontendModule extends FrontendModule {
 	private $iCategoryId = null;
 	
 	public function __construct($oLanguageObject, $aRequestPath = null) {
@@ -11,7 +11,7 @@ class CategorySubpagesFrontendModule extends DynamicFrontendModule {
 		}
 		parent::__construct($oLanguageObject, $aRequestPath);
 	}
-
+	
 	public function renderFrontend() {
 		$oCriteria = DocumentQuery::create()->filterByDocumentKind('image');
 		if(!Session::getSession()->isAuthenticated()) {

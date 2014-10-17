@@ -1,7 +1,6 @@
 general:
   multilingual:   true
   caching:        true
-  use_full_page_cache: false    
 
 domain_holder:
   name:   'playground'

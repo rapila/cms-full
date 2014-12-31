@@ -5,4 +5,6 @@ php:
     - "5.5"
     - "5.6"
     - hhvm
+before_install:
+    - git submodule update --init --recursive
 script: phpunit --bootstrap "base/lib/tests/RapilaTestLoader.php" "./base/lib/tests/TestEverything"

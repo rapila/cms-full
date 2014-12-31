@@ -5,6 +5,8 @@ php:
     - "5.5"
     - "5.6"
     - hhvm
+env: RAPILA_ENVIRONMENT=test
 before_install:
     - git submodule update --init --recursive
+    - sqlite3 db.sqlite < generated/*schema.sql
 script: phpunit --bootstrap "base/lib/tests/RapilaTestLoader.php" "./base/lib/tests/TestEverything"

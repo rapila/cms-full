@@ -1,0 +1,4 @@
+connection:
+  dsn:        'sqlite:${TRAVIS_BUILD_DIR}/db.sqlite'
+database:
+  adapter:  'sqlite'

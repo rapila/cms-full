@@ -1,3 +1,4 @@
 .DS_Store
 generated
+db.sqlite
 site/config/db_config.yml

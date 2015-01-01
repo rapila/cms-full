@@ -1,0 +1,4 @@
+schulcms:
+  provider: json_based
+  metadata_url: 'http://www.schulcms.ch/get_file/documentation/metadata'
+  content_url: 'http://www.schulcms.ch/get_file/documentation/content/${language}/${part}'

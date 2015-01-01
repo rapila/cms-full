@@ -1,4 +1,4 @@
 .DS_Store
 generated
-db.sqlite
+test-db.sqlite
 site/config/db_config.yml

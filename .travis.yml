@@ -9,5 +9,4 @@ before_install:
     - git submodule update --init --recursive
     - base/scripts/create-folders.sh
     - base/scripts/generate-model.sh
-    - sqlite3 db.sqlite < generated/*schema.sql
 script: ./base/scripts/run-tests.sh

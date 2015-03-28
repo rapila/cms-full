@@ -1,6 +1,5 @@
 general:
   multilingual:   true
-  caching:        true
 
 domain_holder:
   name:   'playground'
@@ -26,10 +25,10 @@ admin:
 
   # set this to false if your containers overlap
   use_parsed_css_in_config: false
-  
+
   # document and link lists can be restricted to single category selection (which is simpler to use)
   list_allows_multiple_categories: false
-  
+
 # default config for ckeditor
 # important note: always requires space after comma ", " in order to function properly
 text_module:  

@@ -10,15 +10,27 @@
 */
 class CategorySubpagesFilterModule extends FilterModule {
 
-	public function onNavigationItemChildrenRequested(NavigationItem $oCurrent) {
-		if(!($oCurrent instanceof PageNavigationItem && $oCurrent->getIdentifier() === 'photos')) {
+	public function onNavigationItemChildrenRequested($oNavigationItem) {
+		if(!($oNavigationItem instanceof PageNavigationItem && $oNavigationItem->getIdentifier() === 'photos')) {
 			return;
 		}
 		$aDocumentCategories = DocumentCategoryQuery::create()->filterByDocumentKind('image')->find();
 		foreach($aDocumentCategories as $oDocumentCategory) {
 			$oNavItem = new VirtualNavigationItem(get_class(), StringUtil::normalize($oDocumentCategory->getName()), $oDocumentCategory->getName(), null, $oDocumentCategory->getId());
-			$oCurrent->addChild($oNavItem);
+			$oNavigationItem->addChild($oNavItem);
 		}
+	}
+
+	public function onNavigationItemChildrenCacheDetectOutdated($oNavigationItem, $oCache, $aContainer) {
+		$bIsOutdated = &$aContainer[0];
+		if(!($oNavigationItem instanceof PageNavigationItem && $oNavigationItem->getIdentifier() === 'photos')) {
+			return;
+		}
+		if($bIsOutdated) {
+			return;
+		}
+		// Make sure the children are re-rendered when the items in the query are updated
+		$bIsOutdated = $oCache->isOlderThan(DocumentQuery::create()->filterByDocumentKind('image')) || $oCache->isOlderThan(DocumentCategoryQuery::create()->filterByDocumentKind('image'));
 	}
 	
 	public function onPageHasBeenSet($oPage, $bIsNotFound, $oNavigationItem) {

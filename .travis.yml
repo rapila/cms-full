@@ -12,3 +12,8 @@ before_install:
     - base/scripts/create-folders.sh
     - base/scripts/generate-model.sh
 script: ./base/scripts/run-tests.sh
+addons:
+  apt:
+    packages:
+    - php5-intl
+    - locales

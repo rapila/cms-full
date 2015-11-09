@@ -12,6 +12,7 @@ before_install:
     - base/scripts/create-folders.sh
     - base/scripts/generate-model.sh
     - locale -a
+    - php -r 'echo ICONV_VERSION;'
 script: ./base/scripts/run-tests.sh
 addons:
   apt:

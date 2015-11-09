@@ -6,12 +6,11 @@ php:
     - "5.6"
     - "7.0"
 env: RAPILA_ENVIRONMENT=test PHPUNIT_PATH=phpunit MIGRATION_SUDO=env
-sudo: true
+sudo: false
 before_install:
     - git submodule update --init --recursive
     - base/scripts/create-folders.sh
     - base/scripts/generate-model.sh
-    - sudo locale-gen
 script: ./base/scripts/run-tests.sh
 addons:
   apt:
@@ -19,3 +18,4 @@ addons:
     - locales
     - language-pack-de
     - language-pack-uk
+    - language-pack-en

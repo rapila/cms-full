@@ -11,10 +11,11 @@ before_install:
     - git submodule update --init --recursive
     - base/scripts/create-folders.sh
     - base/scripts/generate-model.sh
-    - sudo locale-gen en_US de_DE en_UK
+    - sudo locale-gen
 script: ./base/scripts/run-tests.sh
 addons:
   apt:
     packages:
-    - php5-intl
     - locales
+    - language-pack-de
+    - language-pack-uk

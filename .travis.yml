@@ -11,6 +11,7 @@ before_install:
     - git submodule update --init --recursive
     - base/scripts/create-folders.sh
     - base/scripts/generate-model.sh
+    - locale -a
 script: ./base/scripts/run-tests.sh
 addons:
   apt:

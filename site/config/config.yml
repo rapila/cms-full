@@ -82,4 +82,3 @@ navigations:
       - {template_inline: '{{name}}', on: is_current}
     1:
       - {template_inline: '{{name}}', on: is_active}
-

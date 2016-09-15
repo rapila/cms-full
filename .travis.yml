@@ -4,6 +4,7 @@ php:
     - "5.4"
     - "5.5"
     - "5.6"
+    - "hhvm"
 env: RAPILA_ENVIRONMENT=test PHPUNIT_PATH=phpunit MIGRATION_SUDO=env SKIP_ICONV_TESTS=1
 sudo: false
 before_install:

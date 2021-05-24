@@ -15,11 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['5.3', '5.4', '5.5']
-        coverage: [ 'none' ]
-        include:
-          - php-version: '5.6'
-            coverage: xdebug
+        php-version: ['5.3', '5.4', '5.5', '5.6']
 
     env:
       RAPILA_ENVIRONMENT: test
@@ -36,7 +32,7 @@ jobs:
         with:
           php-version: ${{ matrix.php-version }}
           extensions: intl,sqlite,iconv
-          coverage: "${{ matrix.coverage }}"
+          coverage: none
 
       - name: Prepare
         run: |
@@ -46,12 +42,4 @@ jobs:
           ./base/scripts/generate-model.sh
 
       - name: Run Tests
-        run: ./base/scripts/run-tests.sh "" "" --coverage-clover build/coverage/xml --whitelist base/lib
-
-      - name: Upload coverage results to Codacy
-        env:
-          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
-        if: "${{ matrix.coverage != 'none' && env.CODACY_PROJECT_TOKEN != '' }}"
-        run: |
-          composer global require codacy/coverage
-          codacycoverage clover build/coverage/xml
+        run: ./base/scripts/run-tests.sh

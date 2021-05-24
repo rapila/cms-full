@@ -41,7 +41,7 @@ jobs:
       - name: Prepare
         run: |
           sudo apt-get -y install sqlite3 locales language-pack-de language-pack-uk language-pack-en
-          composer global require phpunit/phpunit=5
+          composer global require phpunit/phpunit=4
           ./base/scripts/create-folders.sh
           ./base/scripts/generate-model.sh
 

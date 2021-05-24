@@ -15,10 +15,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php-version: ['7.0', '7.1', '7.2']
+        php-version: ['5.6', '7.0']
         coverage: [ 'none' ]
         include:
-          - php-version: '7.3'
+          - php-version: '7.1'
             coverage: xdebug
 
     env:
@@ -41,7 +41,7 @@ jobs:
       - name: Prepare
         run: |
           sudo apt-get -y install sqlite3 locales language-pack-de language-pack-uk language-pack-en
-          composer global require phpunit/phpunit=6
+          composer global require phpunit/phpunit=5
           ./base/scripts/create-folders.sh
           ./base/scripts/generate-model.sh
 

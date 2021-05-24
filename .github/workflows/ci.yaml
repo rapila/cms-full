@@ -1,0 +1,57 @@
+# https://help.github.com/en/categories/automating-your-workflow-with-github-actions
+
+on:
+  pull_request:
+  push:
+
+name: CI
+
+jobs:
+  unit-tests:
+    name: Unit tests
+
+    runs-on: ubuntu-20.04
+
+    strategy:
+      fail-fast: false
+      matrix:
+        # php-version: ['5.6', '7.0', '7.1', '7.2', '7.3']
+        # coverage: [ 'none' ]
+        include:
+          - php-version: '7.3'
+            coverage: xdebug
+
+    env:
+      RAPILA_ENVIRONMENT: test
+      LANG: en_US.UTF-8
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: intl,sqlite,iconv
+          coverage: "${{ matrix.coverage }}"
+
+      - name: Prepare
+        run: |
+          sudo apt-get -y install sqlite3 locales language-pack-de language-pack-uk language-pack-en
+          composer global require phpunit/phpunit=6
+          ./base/scripts/create-folders.sh
+          ./base/scripts/generate-model.sh
+
+      - name: Run Tests
+        run: ./base/scripts/run-tests.sh "" "" --coverage-clover build/coverage/xml --whitelist base/lib
+
+      - name: Upload coverage results to Codacy
+        env:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        if: "${{ matrix.coverage != 'none' && env.CODACY_PROJECT_TOKEN != '' }}"
+        run: |
+          composer global require codacy/coverage
+          codacycoverage clover build/coverage/xml

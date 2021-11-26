@@ -1,0 +1,29 @@
+version: "3"
+
+networks:
+  rapila:
+
+volumes:
+  db-data:
+
+services:
+  mariadb:
+    image: mariadb:10
+    volumes:
+      - db-data:/var/lib/mysql
+    networks:
+      - rapila
+    environment:
+      MYSQL_ROOT_PASSWORD: changeme
+
+  rapila:
+    build: .
+    image: rapila:8.1
+    volumes:
+      - ./:/var/www/html
+    networks:
+      - rapila
+    ports:
+      - 4774:80
+    environment:
+      RAPILA_ENVIRONMENT: backend-development

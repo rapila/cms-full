@@ -40,7 +40,7 @@ jobs:
       - name: Prepare
         run: |
           sudo apt-get -y install sqlite3 locales language-pack-de language-pack-uk language-pack-en
-          composer global require phpunit/phpunit:^9
+          composer global require --ignore-platform-reqs phpunit/phpunit:^9
           ./base/scripts/create-folders.sh
           ./base/scripts/generate-model.sh
 
@@ -52,5 +52,5 @@ jobs:
           CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
         if: "${{ matrix.coverage != 'none' && env.CODACY_PROJECT_TOKEN != '' }}"
         run: |
-          composer global require codacy/coverage
+          composer global require --ignore-platform-reqs codacy/coverage
           codacycoverage clover build/coverage/xml

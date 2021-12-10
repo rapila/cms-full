@@ -19,9 +19,6 @@ jobs:
         include:
           - php-version: '8.1'
             coverage: xdebug
-          - php-version: '8.0'
-            env:
-              SKIP_ICONV_TESTS: 'true'
 
     env:
       RAPILA_ENVIRONMENT: test
